@@ -1,0 +1,69 @@
+@startuml
+
+'Documents'
+abstract class Card {
+String nameBunk
+int CVC
+String cardOwnerName
+String cardOwnerSurname
+}
+class CreditCard {
+double limit
+}
+class DebitCard {
+double balance
+}
+
+Card --|> CreditCard
+Card --|> DebitCard
+
+'Terminal'
+class Terminal {
+Window window
+private int ticketId
+void applyForVisa()
+void receiveCertificate()
+}
+
+'Window'
+class Window {
+List<Ticket> applyForVisaTickets
+List<Ticket> receiveCertificateTickets
+String parseTickets()
+void display()
+List<Ticket> getApplyForVisaTickets()
+void setApplyForVisaTickets()
+List<Ticket> getReceiveCertificateTickets()
+void setReceiveCertificateTickets()
+}
+
+'Operator'
+class Operator {
+Window window
+void callClient()
+}
+
+'Client'
+class Client {
+String name
+Credit credit
+Card[] cards
+Payment[] payments
+Business business
+}
+
+'Tickets'
+abstract class Ticket {
+int id
+Client client
+}
+
+class TicketApplyForVisa
+class TicketReceiveCertificate
+
+Ticket --|> TicketApplyForVisa
+Ticket --|> TicketReceiveCertificate
+
+@enduml
+
+@enduml

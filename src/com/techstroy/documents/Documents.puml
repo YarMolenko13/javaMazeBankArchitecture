@@ -1,0 +1,23 @@
+@startuml
+
+'Documents'
+abstract class Card {
+String nameBunk
+int CVC
+String cardOwnerName
+String cardOwnerSurname
+}
+class CreditCard {
+double limit
+}
+class DebitCard {
+double balance
+}
+
+Card -> CreditCard
+Card -> DebitCard
+
+
+
+
+@enduml
